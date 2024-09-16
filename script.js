@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const jesusImage = document.getElementById('jesusImage');
     const ctx = bellCurveCanvas.getContext('2d');
 
-    // Set canvas dimensions
-    bellCurveCanvas.width = 800;
-    bellCurveCanvas.height = 600;
+    function resizeCanvas() {
+        // Set canvas dimensions to fit container width
+        bellCurveCanvas.width = bellCurveCanvas.parentElement.clientWidth;
+        bellCurveCanvas.height = bellCurveCanvas.width * 0.75; // Maintain aspect ratio (4:3)
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
     rollButton.addEventListener('click', () => {
         // Disable the button temporarily

@@ -1,3 +1,4 @@
+/* Base styles for large screens */
 body {
     display: flex;
     justify-content: center;
@@ -25,16 +26,50 @@ h1 {
 
 #bellCurveCanvas {
     border: 1px solid #ddd;
+    max-width: 100%; /* Ensure it doesn't exceed the container's width */
 }
 
 #jesusImage {
     position: absolute;
     top: 0;
     left: 0;
-    width: 800px;  /* Ensure it matches canvas size */
-    height: 600px; /* Ensure it matches canvas size */
-    object-fit: cover; /* Ensure the image covers the canvas area */
+    width: 100%;  /* Scale with the canvas size */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
     transition: opacity 2s ease-in-out;
     opacity: 0; /* Initially hidden */
     pointer-events: none; /* Prevent interaction with the image */
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8em; /* Adjust font size */
+    }
+
+    #jesusImage {
+        width: 100%;  /* Scale the image */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #bellCurveCanvas {
+        width: 100%;  /* Scale the canvas */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Adjust font size further for very small screens */
+    }
+
+    #jesusImage {
+        width: 100%;  /* Ensure image scales properly */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    #bellCurveCanvas {
+        width: 100%;  /* Ensure canvas scales properly */
+        height: auto; /* Maintain aspect ratio */
+    }
 }
